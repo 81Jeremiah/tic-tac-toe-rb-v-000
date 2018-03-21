@@ -1,4 +1,6 @@
 # Define your WIN_COMBINATIONS constant
+require 'pry'
+
 WIN_COMBINATIONS = [
 [0,1,2], # Top row
 [3,4,5], # Middle row
@@ -64,14 +66,14 @@ def current_player(board)
 
 end
 
-def won?(board)
+def won?(board)      #["x","x","x","", "",""," ","",""]
   WIN_COMBINATIONS.find{ |win|
   board[win[0]] == board[win[1]] &&
   board[win[1]] == board[win[2]] &&
   position_taken?(board,win[0])
 }
 end
-
+binding.pry
 def full?(board)
 board.all? {|full| full == "X" || full == "O" }
 end
